@@ -13,13 +13,19 @@ int main(void)
         } while (height < 1);
         
     // Print a pyramid of that height
-        for (int i = 0; i < height; i++)
+        for (int i = 1; i <= height; i++)
         {
             // Space 
-            for(int j = 1; j < height - i; j++)
+            for(int j = 1; j <= height - i; j++)
             {
-                printf("-");
+                printf(" ");
             }
+            // Hash
+            for (int k = 1; k <= i; k++)
+            {
+                printf("#");
+            }
+            
             printf("\n");
         }
         
