@@ -1,8 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
 
-void print_space(int height);
-
 int main(void)
 {
     // Prompt user input
@@ -10,7 +8,7 @@ int main(void)
         do
         {
             height = get_int("What is the height of the pyramid? ");
-        } while (height < 1);
+        } while (height < 1 || height >8);
         
     // Print a pyramid of that height
         for (int i = 1; i <= height; i++)
@@ -21,10 +19,19 @@ int main(void)
                 printf(" ");
             }
             // Hash
-            for (int k = 1; k <= i; k++)
+            for (int l = 1; l <= i; l++)
             {
-                printf("#");
+                    printf("#");
+                
             }
+            printf("  ");
+
+            for (int r = 1; r <= i; r++)
+            {
+                printf("=");
+            }
+            
+
             
             printf("\n");
         }
