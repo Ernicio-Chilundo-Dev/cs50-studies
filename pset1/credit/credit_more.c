@@ -61,4 +61,22 @@ int main(void)
         start /= 10;
     }
 
+    // Card identification
+
+    if ((start == 34 || start == 37) && length == 15)
+    {
+        printf("AMEX\n");
+    }
+    else if (start >= 51 && start <= 55 || length == 16)
+    {
+        printf("MESTERCARD\n");
+    }
+    else if ((start / 10 == 4) && (length == 13 || length == 16))
+    {
+        printf("VISA\n");
+    }
+    else
+    {
+        printf("INVALID\n");
+    }
 }
