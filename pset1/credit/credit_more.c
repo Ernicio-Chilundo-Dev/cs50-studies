@@ -46,5 +46,19 @@ int main(void)
         return 0;
     }
 
-    
+    // Check of the lenght and starding the digits
+    int length = 0;
+    temp =number;
+    while (temp > 0)
+    {
+        temp /= 10;
+        length++;
+    }
+
+    long start = number;
+    while (start >= 100)
+    {
+        start /= 10;
+    }
+
 }
