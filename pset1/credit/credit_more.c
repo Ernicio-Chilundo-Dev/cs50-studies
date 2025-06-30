@@ -67,7 +67,7 @@ int main(void)
     {
         printf("AMEX\n");
     }
-    else if (start >= 51 && start <= 55 || length == 16)
+    else if (start >= 51 && start <= 55 && length == 16)
     {
         printf("MESTERCARD\n");
     }
