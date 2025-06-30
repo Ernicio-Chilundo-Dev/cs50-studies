@@ -36,4 +36,15 @@ int main(void)
         temp /= 10;
         position++;
     }
+
+    int total = sum1 + sum2;
+
+    // Check the validity of the number
+    if (total % 10 != 0)
+    {
+        printf("INVALID\n");
+        return 0;
+    }
+
+    
 }
