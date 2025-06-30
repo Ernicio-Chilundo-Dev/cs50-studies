@@ -5,7 +5,23 @@ bool luhn_check(long number);
 
 int main(void)
 {
+    // Prompt user input
+    long card;
 
+    do 
+    {
+        card = get_long("Card number; ");
+    }
+    while (card < 1);
+
+    if (luhn_check(card))
+    {
+        printf("Valido\n");
+    }
+    else
+    {
+        printf("Invalido\n");
+    }
 }
 
 bool luhn_check(long number)
