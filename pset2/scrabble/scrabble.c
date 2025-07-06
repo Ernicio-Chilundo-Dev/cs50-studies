@@ -37,7 +37,22 @@ int main(void)
         printf("Draw!\n");
     }
 
-
 }
 
 
+int computer_score(string word)
+{
+    int score = 0;
+
+    for (int i = 0; i < strlen(word); i++)
+    {
+        char c = word[i];
+
+        if  (isalpha(c))
+        {
+            int index = toupper(c) - 'A';
+            score += POINTS[index];
+        }
+    }
+    return score;
+}
