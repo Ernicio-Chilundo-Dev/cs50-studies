@@ -15,7 +15,7 @@ int main(void)
     {
         char c = text[i];
 
-        if (c == c)
+        if (isalpha(c))
         {
             letters++;
         }
