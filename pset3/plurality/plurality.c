@@ -40,5 +40,24 @@ int  main(int argc, string argv[])
         printf("Maxmum number of candidate is %i\n", MAX);
         return 2;
     }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        candidates[i].name = argv[i + 1];
+        candidates[i].votes = 0;
+    }
     
+    int voter_count = get_int("Numbers voters: ");
+
+    // Loop over all of voter
+    for (int i = 0; i < voter_count; i++)
+    {
+        string name = get_string("Vote: ");
+
+        // Check for invalid vote
+        if (!vote(name))
+        {
+            printf("Invalid name!\n");
+        }
+    }
 }
