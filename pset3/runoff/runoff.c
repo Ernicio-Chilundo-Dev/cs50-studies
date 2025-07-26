@@ -25,13 +25,13 @@ int candidate_count;
 
 // Function prototypes
 bool vote(int vote, int rank, string name);
-void tabulete(void);
+void tabulate(void);
 bool print_winner(void);
 int find_min(void);
 bool is_tie(int min);
-void elimnate(int min);
+void eliminate(int min);
 
-int main(int argc, int argv[])
+int main(int argc, string argv[])
 {
     if (argc < 2)
     {
@@ -64,7 +64,7 @@ int main(int argc, int argv[])
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            string name = get_strin("Rank %i: ", j  + 1);
+            string name = get_string("Rank %i: ", j  + 1);
 
             if (!vote(i, j, name))
             {
@@ -76,7 +76,7 @@ int main(int argc, int argv[])
 
     while (true)
     {
-        tabulete();
+        tabulate();
 
         if (print_winner())
         {
@@ -96,7 +96,7 @@ int main(int argc, int argv[])
             break;
         }
 
-        elimnate(min);
+        eliminate(min);
 
         for (int i = 0; i  < candidate_count; i++)
         {
