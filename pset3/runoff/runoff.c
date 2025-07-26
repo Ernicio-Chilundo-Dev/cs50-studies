@@ -23,6 +23,14 @@ candidate candidates[MAX_CANDIDATES];
 int voter_count;
 int candidate_count;
 
+// Function prototypes
+bool vote(int vote, int rank, string name);
+void tabulete(void);
+bool print_winner(void);
+int find_min(void);
+bool is_tie(int min);
+void elimnate(int min);
+
 
 
 
