@@ -10,7 +10,7 @@ int main(int argc, string argv[])
         printf("Please provide only one filname\n");
         return 1;
     }
-    
+
    // Open file
     FILE *input = fopen(argv[1], "r");
 
@@ -24,6 +24,20 @@ int main(int argc, string argv[])
     fread(buffer, sizeof(uint8_t), 4, input);
 
     // Check the first 4 bytes again signature bytes
+    for (int i = 0; i < 4; i++)
+    {
+        if (signature[i] != buffer[i])
+        {
+            printf("This is not a PDF!\n");
+            return 0;
+        }
+    }
 
     // Sucess!
+    printf("It is a PDF!\n");
+
+    // Close the file
+    fclose(input);
+
+    return 0;
 }
