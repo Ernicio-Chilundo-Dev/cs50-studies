@@ -13,15 +13,26 @@ int main(int argc, string argv[])
 
    // Open file
     FILE *input = fopen(argv[1], "r");
+    if (input == NULL)
+    {
+        printf("Counld not open file\n");
+        return 1;
+    }
 
     // Create buffer for file
     uint8_t buffer[4];
 
-    // Create an array of signature bytes
+    // Create an array of signature bytes(PDF Signature)
     uint8_t signature[] = {0x25, 0x50, 0x44, 0x46};
 
     // Ready first 4 bytes from the file
-    fread(buffer, sizeof(uint8_t), 4, input);
+    size_t ready_bytes = fread(buffer, sizeof(uint8_t), sizeof(signature), input);
+    if (ready_bytes != sizeof(signature))
+    {
+        printf("File too small to be a PDF.\n");
+        fclose(input);
+        return 1;
+    }
 
     // Check the first 4 bytes again signature bytes
     for (int i = 0; i < 4; i++)
@@ -29,6 +40,7 @@ int main(int argc, string argv[])
         if (signature[i] != buffer[i])
         {
             printf("This is not a PDF!\n");
+            fclose(input);
             return 0;
         }
     }
