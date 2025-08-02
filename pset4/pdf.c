@@ -5,7 +5,12 @@
 int main(int argc, string argv[])
 {
    // Check for usage, must for 2 CLA 
-
+    if (argc != 2)
+    {
+        printf("Please provide only one filname\n");
+        return 1;
+    }
+    
    // Open file
     FILE *input = fopen(argv[1], "r");
 
